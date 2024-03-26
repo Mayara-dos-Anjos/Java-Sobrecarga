@@ -9,18 +9,29 @@ public class Calculadora {
         System.out.println(Operacao.mensagemEstatica());
         
         Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite a operação:\n"+"1-adição dois valores inteiros\n"+"2-subtração\n"+"3-multiplicação\n"+"4-divisão\n"+"5-exponenciação\n"+"6-fatorial\n"+"7-adição três valores\n"+"8-adição dois valores texto");
+        boolean continuar = true;
+        
+      while (continuar) {
+        System.out.println("Digite a operação:\n"+"1-adição dois valores inteiros\n"+"2-subtração\n"+"3-multiplicação\n"+"4-divisão\n"+"5-exponenciação\n"+"6-fatorial\n"+"7-adição três valores\n"+"8-adição dois valores texto\n"+"9-sair\n");
+      
 
         int opcao = teclado.nextInt();
-        System.out.println("Digite o valor 1: ");
-        int valor1 = teclado.nextInt();
+      
+        int valor1 = 0;
         int valor2 = 0;
        
-        if  (opcao !=5 && opcao !=6){
+        if  (opcao == 9){
+          System.out.println("Saindo...");
+        }
+          else if (opcao != 9){
+            System.out.println("Digite o valor 1: ");
+            valor1 = teclado.nextInt();
+               if (opcao != 5 && opcao !=6){
             System.out.println("Digite o valor 2: ");
             valor2 = teclado.nextInt();
-        }
-      
+            }
+          }
+          
 
       Operacao operacao = new Operacao();
 
@@ -56,8 +67,11 @@ public class Calculadora {
         break;
         case 8: System.out.println("Adição de dois valores texto="+operacao.soma(valor1, valor2));
         break;
+        case 9: continuar = false;
+        break;
         default: System.out.println("Operação invalida");
 
+        }
       }
       teclado.close();  
     } 

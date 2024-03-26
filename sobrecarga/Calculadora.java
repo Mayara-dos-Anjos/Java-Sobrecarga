@@ -15,7 +15,8 @@ public class Calculadora {
         System.out.println("Digite o valor 1: ");
         int valor1 = teclado.nextInt();
         int valor2 = 0;
-        if (opcao !=5 && opcao !=6){
+       
+        if  (opcao !=5 && opcao !=6){
             System.out.println("Digite o valor 2: ");
             valor2 = teclado.nextInt();
         }
@@ -41,16 +42,20 @@ public class Calculadora {
         case 5:System.out.println("Exponenciação");
         double base = valor1;
         System.out.println("Digite o expoente: ");
-        double expoente = teclado.nextDouble();
-        double resultado = Operacao.calcularExponenciacao(base, valor2);
+        int expoente = teclado.nextInt();
+        double resultado = Operacao.calcularExponenciacao(base, expoente);
         System.out.println("O resultado de "+ base + " elevado a " + expoente + " é: " + resultado);
         break;
         case 6: operacao.setFatorial(valor1);
         System.out.println("Fatorial="+operacao.getFatorial());
         break;
-        case 7: System.out.println("Adição de 3 valores"+operacao.soma(valor1, valor2, 78));
+        case 7: 
+        System.out.println("Digite o valor 3: ");
+        int valor3 = teclado.nextInt();
+        System.out.println("Adição de 3 valores= " + operacao.soma(valor1, valor2, valor3));
         break;
         case 8: System.out.println("Adição de dois valores texto="+operacao.soma(valor1, valor2));
+        break;
         default: System.out.println("Operação invalida");
 
       }
